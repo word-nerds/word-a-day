@@ -6,25 +6,25 @@
 // call the randomizer function, to obtain the word and return it.
 
 const wordApp = {};
-wordApp.url = `https://wordsapiv1.p.rapidapi.com/words/`;
+wordApp.url = `https://wordsapiv1.p.rapidapi.com/words`;
 
 wordApp.monday = [
   'jaunty','quandary','beseech','gumption','panache','rigmarole','feckless','sartorial','nudnik','ambiguous'
 ];
 wordApp.tuesday = [
-  'bricolage','lucida','petrichor','flummox','dowdy','bamboozle','brouhaha','zeal','flimflam','emaciate'
+  'bricolage','serendipity','bedevil','flummox','dowdy','bamboozle','brouhaha','zeal','flimflam','emaciate'
 ];
 wordApp.wednesday = [
   'colloquial','sempiternal','reticent','clandestine','ennui','supine','ephemeral','raconteur','lassitude','paradox'
 ];
 wordApp.thursday = [
-  'effervescent','tryst','ebullience','gossamer','mondegreen','saunter','bucolic','forbearance','talisman','frondeur'
+  'effervescent','tryst','ebullience','gossamer','encumber','saunter','bucolic','forbearance','talisman','pablum'
 ];
 wordApp.friday = [
-  'lollygag','scofflaw','ineffable','screenager','thwart','noxious','wayfarer','opine','altruistic','reverie'
+  'lollygag','scofflaw','ineffable','pettifog','thwart','noxious','wayfarer','opine','altruistic','reverie'
 ];
 wordApp.saturday = [
-  'voracity','cantankerous','umbra','salient','hubris','uncouth','minutiae','octothorp','capricious','flippant'
+  'voracity','cantankerous','umbra','salient','hubris','uncouth','bombastic','fluvial','capricious','flippant'
 ];
 wordApp.sunday = [
   'mercurial','stoicism','persnickety','hyperbolic','crestfallen','rambunctious','ubiquitous','languish','whimsical','incognito'
@@ -52,12 +52,12 @@ wordApp.usersChoice = () => {
 }
 
 wordApp.randomizer = () => {
-  const randomIndex = Math.floor(Math.random() * 11);
+  const randomIndex = Math.floor(Math.random() * 10);
   return randomIndex;
 }
 
-wordApp.getData = () => {
-  const apiUrl = new URL(wordApp.url);
+wordApp.getData = (chosenWord) => {
+  const apiUrl = new URL(`${wordApp.url}/${chosenWord}`);
   fetch(apiUrl, {
     'method': 'GET',
     'headers': {
@@ -69,10 +69,23 @@ wordApp.getData = () => {
       return response.json();
     })
     .then(result => {
-      console.log(result);
+      // console.log(result);
+      wordApp.displayInfo(result);
     })
 }
 
+wordApp.displayInfo = (dataFromApi) => {
+  console.log(dataFromApi);
+  const wordContainer = document.querySelector('.word-container');
+  console.log(wordContainer);
+  wordContainer.innerHTML = `
+  <h2> ${dataFromApi.word} </h2>
+  <p> ${dataFromApi.pronunciation.all} </p>
+  <p> ${dataFromApi.results[0].definition} </p>
+  <p> Synonym: ${dataFromApi.results[0].synonyms[0]} </p>
+  `;
+  // need to remove last <p>, put into an if statement to catch the NO SYNONYM error
+}
 
 wordApp.init = () => {
   wordApp.usersChoice();
