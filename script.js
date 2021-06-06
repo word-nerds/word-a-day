@@ -40,7 +40,7 @@ wordApp.usersChoice = () => {
     console.log(day);
 
     if (day === wordApp.day) {
-      // call randomizer function
+      // call randomizer function here
     }
   })
 }
@@ -49,7 +49,7 @@ wordApp.randomizer = () => {
   const randomIndex = Math.floor(Math.random() * 10) + 1;
   console.log(randomIndex);
 }
-wordApp.randomizer(wordApp.monday);
+// wordApp.randomizer(wordApp.monday);
 
 wordApp.getData = () => {
   const apiUrl = new URL(wordApp.url);
