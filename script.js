@@ -82,14 +82,21 @@ wordApp.displayInfo = (dataFromApi) => {
   <h2> ${dataFromApi.word} </h2>
   <p> ${dataFromApi.pronunciation.all} </p>
   <p> ${dataFromApi.results[0].definition} </p>
-  <p> Synonym: ${dataFromApi.results[0].synonyms[0]} </p>
+  <p id="synonym"></p>
   `;
-  // need to remove last <p>, put into an if statement to catch the NO SYNONYM error
+  if (dataFromApi.results[0].synonyms === undefined) {
+    document.getElementById('synonym').innerHTML = `
+    <p> Synonym: Whomp! This word is one of a kind.</p>
+    `;
+  } else {
+    document.getElementById("synonym").innerHTML = `
+    <p> Synonym: ${dataFromApi.results[0].synonyms[0]} </p>
+    `;
+  }
 }
 
 wordApp.init = () => {
   wordApp.usersChoice();
-  // wordApp.getData();
 }
 
 wordApp.init();
