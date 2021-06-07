@@ -1,0 +1,30 @@
+header {
+  background-image: url(../assets/header-image.jpg);
+  background-size: cover;
+  background-position-y: bottom 30%;
+}
+
+header h1 {
+  @include h1;
+  padding: 30vh 0;
+  height: 100%;
+  position: relative;
+}
+
+h1 span {
+  display: block;
+}
+
+.scrabble-w {
+  position: absolute;
+  width: 123px;
+  top: 28vh;
+  left: -37px;
+}
+
+.scrabble-d {
+  position: absolute;
+  width: 76px;
+  bottom: 30vh;
+  left: -17px;
+}

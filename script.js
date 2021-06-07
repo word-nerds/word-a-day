@@ -79,11 +79,12 @@ wordApp.displayInfo = (dataFromApi) => {
   const wordContainer = document.querySelector('.word-container');
   console.log(wordContainer);
   wordContainer.innerHTML = `
-  <h2> ${dataFromApi.word} </h2>
+  <h3> ${dataFromApi.word} </h3>
   <p> ${dataFromApi.pronunciation.all} </p>
   <p> ${dataFromApi.results[0].definition} </p>
   <p id="synonym"></p>
   `;
+  // error handling for words with no synonym data to display
   if (dataFromApi.results[0].synonyms === undefined) {
     document.getElementById('synonym').innerHTML = `
     <p> Synonym: Whomp! This word is one of a kind.</p>
