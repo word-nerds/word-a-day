@@ -75,9 +75,10 @@ wordApp.getData = (chosenWord) => {
 }
 
 wordApp.displayInfo = (dataFromApi) => {
-  console.log(dataFromApi);
+  // console.log(dataFromApi);
+  document.querySelector('input[type=radio]:checked').checked = false;
   const wordContainer = document.querySelector('.word-container');
-  console.log(wordContainer);
+  // console.log(wordContainer);
   wordContainer.innerHTML = `
   <h3> ${dataFromApi.word} </h3>
   <p> ${dataFromApi.pronunciation.all} </p>
