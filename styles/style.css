@@ -288,6 +288,7 @@ h1 span {
   width: 123px;
   top: 28vh;
   left: -37px;
+  rotate: -4deg;
 }
 
 .scrabble-d {
@@ -295,4 +296,5 @@ h1 span {
   width: 76px;
   bottom: 30vh;
   left: -17px;
+  rotate: 3deg;
 }
