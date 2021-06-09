@@ -12,7 +12,7 @@ wordApp.monday = [
   'jaunty','quandary','beseech','gumption','panache','rigmarole','feckless','sartorial','nudnik','ambiguous'
 ];
 wordApp.tuesday = [
-  'bricolage','serendipity','bedevil','flummox','dowdy','bamboozle','brouhaha','zeal','flimflam','emaciate'
+  'bricolage','serendipity','bedevil','flummox','fanfare','bamboozle','brouhaha','zeal','flimflam','emaciate'
 ];
 wordApp.wednesday = [
   'colloquial','sempiternal','reticent','clandestine','ennui','supine','ephemeral','raconteur','lassitude','paradox'

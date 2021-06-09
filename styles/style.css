@@ -417,6 +417,7 @@ input {
 
 .about span {
   display: block;
+  padding-top: 20px;
 }
 
 .form-about {
@@ -434,16 +435,54 @@ input {
       align-self: center;
 }
 
+.about h2 {
+  font-family: "Open Sans", sans-serif;
+  padding-bottom: 30px;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+.about p {
+  font-family: "Montserrat", sans-serif;
+  line-height: 35px;
+}
+
 .banner-image {
   background-image: url(../assets/bluffs-beach.jpeg);
   background-size: cover;
   background-position: center;
   background-position-x: center;
   height: 70vh;
+  position: relative;
 }
 
 .word-container {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 70%;
+  color: #fff;
+  z-index: 10;
+}
+
+.word-container::before {
+  content: "";
+  background-color: #333;
+  opacity: 0.3;
+  position: absolute;
+  top: 130px;
+  right: 150px;
+  bottom: 130px;
+  left: 150px;
 }
 
 h3 {
@@ -465,4 +504,20 @@ h3 {
 #synonym {
   font-family: "Montserrat", sans-serif;
   font-size: 1.25rem;
+}
+
+#pronunciation,
+h3,
+#definition,
+#synonym {
+  z-index: 10;
+  padding: 15px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  padding: 15px;
 }

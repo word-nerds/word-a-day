@@ -4,10 +4,29 @@
     background-position: center;
     background-position-x: center;
     height: 70vh;
+    position: relative;
 }
 
 .word-container {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 70%;
+    color: #fff;
+    z-index: 10;
+}
+
+.word-container::before {
+    content: "";
+    background-color: #333;
+    opacity: 0.3;
+    position: absolute;
+    top: 130px;
+    right: 150px;
+    bottom: 130px;
+    left: 150px;
 }
 
 h3 {
@@ -29,4 +48,12 @@ h3 {
 #synonym {
     font-family: $base-font;
     font-size: 1.25rem;
+}
+
+#pronunciation,
+h3,
+#definition,
+#synonym {
+    z-index: 10;
+    padding: 15px;
 }
