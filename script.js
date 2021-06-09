@@ -81,8 +81,8 @@ wordApp.displayInfo = (dataFromApi) => {
   // console.log(wordContainer);
   wordContainer.innerHTML = `
   <h3> ${dataFromApi.word} </h3>
-  <p> ${dataFromApi.pronunciation.all} </p>
-  <p> ${dataFromApi.results[0].definition} </p>
+  <p id="pronunciation"> ${dataFromApi.pronunciation.all}</p>
+  <p id="definition">Definition: ${dataFromApi.results[0].definition}.</p>
   <p id="synonym"></p>
   `;
   // error handling for words with no synonym data to display

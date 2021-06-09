@@ -336,7 +336,7 @@ label {
   margin: 20px 0;
   color: #fff;
   font-weight: 700;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
 }
 
 button {
@@ -347,7 +347,7 @@ button {
   border: 2px solid #fff;
   border-radius: 3%;
   background-color: rgba(255, 255, 255, 0);
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   color: #fff;
   font-weight: 700;
   font-size: 1.5rem;
@@ -432,4 +432,37 @@ input {
   width: calc(100% / 2 - 50px);
   -ms-flex-item-align: center;
       align-self: center;
+}
+
+.banner-image {
+  background-image: url(../assets/bluffs-beach.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-position-x: center;
+  height: 70vh;
+}
+
+.word-container {
+  text-align: center;
+}
+
+h3 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+#pronunciation {
+  font-family: "Tinos", serif;
+  font-size: 1.75rem;
+}
+
+#definition {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+}
+
+#synonym {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
 }
