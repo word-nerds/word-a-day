@@ -107,6 +107,7 @@ input {
 
 .about span {
   display: block;
+  padding-top: 20px;
 }
 
 .form-about {
@@ -117,4 +118,16 @@ input {
 .about {
   width: calc(100% / 2 - 50px);
   align-self: center;
+}
+
+.about h2 {
+  font-family: $header-font;
+  padding-bottom: 30px;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+.about p {
+  font-family: $base-font;
+  line-height: 35px;
 }
