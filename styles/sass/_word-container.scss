@@ -1,0 +1,32 @@
+.banner-image {
+    background-image: url(../assets/bluffs-beach.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-position-x: center;
+    height: 70vh;
+}
+
+.word-container {
+    text-align: center;
+}
+
+h3 {
+    font-family: $header-font;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+#pronunciation {
+    font-family: $pronunciation-font;
+    font-size: 1.75rem;
+}
+
+#definition {
+    font-family: $base-font;
+    font-size: 2rem;
+}
+
+#synonym {
+    font-family: $base-font;
+    font-size: 1.25rem;
+}

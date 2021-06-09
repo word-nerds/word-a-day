@@ -1,9 +1,12 @@
 $primary: #333;
 
+$base-font: 'Montserrat', sans-serif;
+$header-font: 'Open Sans', sans-serif;
+$pronunciation-font: 'Tinos', serif;
+
 @mixin h1() {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $header-font;
   font-weight: 700;
   font-size: 4rem;
   letter-spacing: 10px;
-  // text-transform: uppercase;
 }
