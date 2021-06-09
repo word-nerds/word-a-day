@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans&family=Tinos:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/style.css">
-  <title>word a day</title>
+  <title>🤓 word a day</title>
 </head>
 <body>
   <header>
@@ -16,35 +16,54 @@
     </div>
   </header>
   <main>
-    <section>    
+    <section class="form-about wrapper">
       <form class="word-form" name="day-of week">
+        <div class="image-opacity"></div>
         <fieldset>
-          <legend>Which day of the week is it?</legend>
-
-          <label for="monday">Monday</label>
-          <input type="radio" name="day-of-week" id="monday" value="monday">
-
-          <label for="tuesday">Tuesday</label>
-          <input type="radio" name="day-of-week" id="tuesday" value="tuesday">
-
-          <label for="wednesday">Wednesday</label>
-          <input type="radio" name="day-of-week" id="wednesday" value="wednesday">
-
-          <label for="thursday">Thursday</label>
-          <input type="radio" name="day-of-week" id="thursday" value="thursday">
-
-          <label for="friday">Friday</label>
-          <input type="radio" name="day-of-week" id="friday" value="friday">
-
-          <label for="saturday">Saturday</label>
-          <input type="radio" name="day-of-week" id="saturday" value="saturday">
-
-          <label for="sunday">Sunday</label>
-          <input type="radio" name="day-of-week" id="sunday" value="sunday">
-
-          <button type="submit">Ready!</button>
+          <legend class="sr-only">Which day of the week is it?</legend>
+    
+          <label class="radio-container" for="monday">Monday
+            <input type="radio" name="day-of-week" id="monday" value="monday">
+            <span class="new-radio"></span>
+          </label>
+    
+          <label class="radio-container" for="tuesday">Tuesday
+            <input type="radio" name="day-of-week" id="tuesday" value="tuesday">
+            <span class="new-radio"></span>
+          </label>
+    
+          <label class="radio-container" for="wednesday">Wednesday
+            <input type="radio" name="day-of-week" id="wednesday" value="wednesday">
+            <span class="new-radio"></span>
+          </label>
+    
+          <label class="radio-container" for="thursday">Thursday
+            <input type="radio" name="day-of-week" id="thursday" value="thursday">
+            <span class="new-radio"></span>
+          </label>
+    
+          <label class="radio-container" for="friday">Friday
+            <input type="radio" name="day-of-week" id="friday" value="friday">
+            <span class="new-radio"></span>
+          </label>
+    
+          <label class="radio-container" for="saturday">Saturday
+            <input type="radio" name="day-of-week" id="saturday" value="saturday">
+            <span class="new-radio"></span>
+          </label>
+    
+          <label class="radio-container" for="sunday">Sunday
+            <input type="radio" name="day-of-week" id="sunday" value="sunday">
+            <span class="new-radio"></span>
+          </label>
+    
+          <button type="submit">Word Me!</button>
         </fieldset>
       </form>
+      <div class="about">
+        <h2>About</h2>
+        <p>Boost your vocabulary with our word a day app — serving you the magic of words every day of the week!<span></span>On the left menu, choose which day of the week it is and click the 'word me!' button.<span></span>Enjoy today's word, it's pronunciation, definition and its synonym.<span></span>Click on the mystery egg for a fun surprise.</p>
+      </div>
     </section>
     <section class="word-container">
       
