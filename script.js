@@ -1,5 +1,5 @@
 // pseudo code:
-// create an array of 10 words for each day of the week.
+
 // add an Event Listener to the user input on button click and obtain the value.
 // create a randomizer function to be called as needed.
 // create a function that will loop through the selected day of the week(based on the user's value)
@@ -8,6 +8,7 @@
 const wordApp = {};
 wordApp.url = `https://wordsapiv1.p.rapidapi.com/words`;
 
+// array of words by day of the week
 wordApp.monday = [
   'jaunty','quandary','beseech','gumption','panache','rigmarole','feckless','sartorial','nudnik','ambiguous'
 ];
@@ -30,32 +31,35 @@ wordApp.sunday = [
   'mercurial','stoicism','persnickety','hyperbolic','crestfallen','rambunctious','ubiquitous','languish','whimsical','incognito'
 ];
 
-
+// Event listener for the form submit
 wordApp.usersChoice = () => {
   wordApp.form = document.querySelector('form');
   
   wordApp.form.addEventListener('submit', function(e) {
     e.preventDefault();
     const day = document.querySelector('input[type=radio]:checked').value;
-    // console.log(day);
-    // console.log(wordApp[day]);
+
     const wordArray = wordApp[day];
     console.log(wordArray);
-    // access the array using a randomized number
-    // store the chosen word in a variable
+
+    // Call randomizer function to get random word
     const selectedIndex = wordApp.randomizer(wordArray);
-    // console.log(selectedIndex);
+
     const chosenWord =  wordArray[selectedIndex];
+    // wordApp.chosenWord = wordArray[selectedIndex];
     console.log(chosenWord);
-    wordApp.getData(chosenWord);  
+    wordApp.getData(chosenWord);
+    wordApp.gifListener(chosenWord);
   })
 }
 
+// Randomizer function using array length of words
 wordApp.randomizer = (wordArray) => {
   const randomIndex = Math.floor(Math.random() * wordArray.length);
   return randomIndex;
 };
 
+// Our first API data call
 wordApp.getData = (chosenWord) => {
   const apiUrl = new URL(`${wordApp.url}/${chosenWord}`);
   fetch(apiUrl, {
@@ -74,6 +78,7 @@ wordApp.getData = (chosenWord) => {
     })
 }
 
+// Display function to 
 wordApp.displayInfo = (dataFromApi) => {
   // console.log(dataFromApi);
   document.querySelector('input[type=radio]:checked').checked = false;
@@ -101,30 +106,38 @@ wordApp.gifFinder = (chosenWord) => {
   const gifUrl = new URL('https://api.giphy.com/v1/gifs/search');
   gifUrl.search = new URLSearchParams({
     api_key: "BbrPWjSba6HH8wrtz8PPt5CY6XDTT5qa",
-    q: 'ennui',
+    q: chosenWord,
     limit: 1
   });
-  console.log(gifUrl);
+  
   fetch(gifUrl)
     .then(gifData => {
       return gifData.json();
     })
     .then(gifObject => {
-      const chosenGif = gifObject.data[0].url;
-      // console.log(chosenGif);
-      displayGif(chosenGif);
+      const chosenGif = gifObject.data[0].images.original.url;
+      console.log(chosenGif);
+      wordApp.displayGif(chosenGif);
     })
 }
 
-wordApp.displayGif = () => {
-
+wordApp.gifListener = (chosenWord) => {
+  wordApp.tile = document.querySelector('.blank-tile');
+  wordApp.tile.addEventListener('click', function(){
+    wordApp.gifFinder(chosenWord);
+  })
 }
 
+wordApp.displayGif = (chosenGif) => {
+  // find the img to replace in gif container section
+  const newImage = document.querySelector('.giphy-gif img');
 
-
-
-
-wordApp.gifFinder();
+  // replace src on image, remove existing image class add class for gif styling
+  newImage.src = chosenGif;
+  newImage.alt = "a random gif image generated from the word of the day.";
+  newImage.classList.remove('blank-tile');
+  newImage.classList.add('gif-styles');
+}
 
 wordApp.init = () => {
   wordApp.usersChoice();
