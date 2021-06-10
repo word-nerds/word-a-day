@@ -43,7 +43,7 @@ wordApp.usersChoice = () => {
     console.log(wordArray);
     // access the array using a randomized number
     // store the chosen word in a variable
-    const selectedIndex = wordApp.randomizer();
+    const selectedIndex = wordApp.randomizer(wordArray);
     // console.log(selectedIndex);
     const chosenWord =  wordArray[selectedIndex];
     console.log(chosenWord);
@@ -51,10 +51,10 @@ wordApp.usersChoice = () => {
   })
 }
 
-wordApp.randomizer = () => {
-  const randomIndex = Math.floor(Math.random() * 10);
+wordApp.randomizer = (wordArray) => {
+  const randomIndex = Math.floor(Math.random() * wordArray.length);
   return randomIndex;
-}
+};
 
 wordApp.getData = (chosenWord) => {
   const apiUrl = new URL(`${wordApp.url}/${chosenWord}`);
@@ -91,11 +91,40 @@ wordApp.displayInfo = (dataFromApi) => {
     <p> Synonym: Whomp! This word is one of a kind.</p>
     `;
   } else {
-    document.getElementById("synonym").innerHTML = `
+    document.getElementById('synonym').innerHTML = `
     <p> Synonym: ${dataFromApi.results[0].synonyms[0]} </p>
     `;
   }
 }
+
+wordApp.gifFinder = (chosenWord) => {
+  const gifUrl = new URL('https://api.giphy.com/v1/gifs/search');
+  gifUrl.search = new URLSearchParams({
+    api_key: "BbrPWjSba6HH8wrtz8PPt5CY6XDTT5qa",
+    q: 'ennui',
+    limit: 1
+  });
+  console.log(gifUrl);
+  fetch(gifUrl)
+    .then(gifData => {
+      return gifData.json();
+    })
+    .then(gifObject => {
+      const chosenGif = gifObject.data[0].url;
+      // console.log(chosenGif);
+      displayGif(chosenGif);
+    })
+}
+
+wordApp.displayGif = () => {
+
+}
+
+
+
+
+
+wordApp.gifFinder();
 
 wordApp.init = () => {
   wordApp.usersChoice();
