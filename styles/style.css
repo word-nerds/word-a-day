@@ -531,6 +531,15 @@ h3,
   padding: 15px;
 }
 
+.giphy-gif {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 footer p {
   background-color: #333;
   color: #fff;
