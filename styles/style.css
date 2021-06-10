@@ -380,7 +380,7 @@ input {
 
 .new-radio {
   position: absolute;
-  top: 7px;
+  top: 10px;
   right: -1px;
   height: 25px;
   width: 25px;
@@ -437,9 +437,26 @@ input {
 
 .about h2 {
   font-family: "Open Sans", sans-serif;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
   font-size: 2.5rem;
   letter-spacing: 2px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.underline {
+  -webkit-box-shadow: -10px 17px 0 -10px #dccd56;
+          box-shadow: -10px 17px 0 -10px #dccd56;
+  -webkit-transition: -webkit-box-shadow 250ms ease-in-out;
+  transition: -webkit-box-shadow 250ms ease-in-out;
+  transition: box-shadow 250ms ease-in-out;
+  transition: box-shadow 250ms ease-in-out, -webkit-box-shadow 250ms ease-in-out;
+}
+
+.underline:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .about p {
@@ -514,10 +531,14 @@ h3,
   padding: 15px;
 }
 
-footer {
+footer p {
   background-color: #333;
   color: #fff;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   padding: 15px;
+}
+
+footer span {
+  display: block;
 }
