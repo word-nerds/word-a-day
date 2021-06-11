@@ -49,6 +49,8 @@ wordApp.usersChoice = () => {
     // wordApp.chosenWord = wordArray[selectedIndex];
     console.log(chosenWord);
     wordApp.getData(chosenWord);
+    const location = document.querySelector('.banner-image');
+    location.scrollIntoView();    
     wordApp.gifListener(chosenWord);
   })
 }

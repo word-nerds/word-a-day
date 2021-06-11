@@ -1,4 +1,44 @@
+.giphy-surprise {
+  position: relative;
+  height: 60vh;
+}
+
 .giphy-gif {
   display: flex;
   justify-content: center;
+}
+
+.blank-tile {
+  width: 90px;
+  padding-top: 180px;
+  &:hover,
+  &:focus {
+    animation: wiggle 300ms infinite;
+    animation-timing-function: linear;
+    cursor: pointer;
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate(2px, 0);
+  }
+  50% {
+    transform: translate(-2px, 0);  
+  }
+  100% {
+    transform: translate(2px, 0);
+  }
+}
+
+.gif-styles {
+  padding-top: 80px;
+  max-height: 700px;
+  min-height: 500px;
+}
+
+.scrabble-stack {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

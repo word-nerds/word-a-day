@@ -237,6 +237,7 @@ html {
 
 html {
   font-size: 125%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -531,6 +532,11 @@ h3,
   padding: 15px;
 }
 
+.giphy-surprise {
+  position: relative;
+  height: 60vh;
+}
+
 .giphy-gif {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -538,6 +544,59 @@ h3,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.blank-tile {
+  width: 90px;
+  padding-top: 180px;
+}
+.blank-tile:hover, .blank-tile:focus {
+  -webkit-animation: wiggle 300ms infinite;
+          animation: wiggle 300ms infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  cursor: pointer;
+}
+
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: translate(2px, 0);
+            transform: translate(2px, 0);
+  }
+  50% {
+    -webkit-transform: translate(-2px, 0);
+            transform: translate(-2px, 0);
+  }
+  100% {
+    -webkit-transform: translate(2px, 0);
+            transform: translate(2px, 0);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    -webkit-transform: translate(2px, 0);
+            transform: translate(2px, 0);
+  }
+  50% {
+    -webkit-transform: translate(-2px, 0);
+            transform: translate(-2px, 0);
+  }
+  100% {
+    -webkit-transform: translate(2px, 0);
+            transform: translate(2px, 0);
+  }
+}
+.gif-styles {
+  padding-top: 80px;
+  max-height: 700px;
+  min-height: 500px;
+}
+
+.scrabble-stack {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 footer p {
