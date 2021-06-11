@@ -534,7 +534,6 @@ h3,
 
 .giphy-surprise {
   position: relative;
-  height: 60vh;
 }
 
 .giphy-gif {
@@ -548,7 +547,7 @@ h3,
 
 .blank-tile {
   width: 90px;
-  padding-top: 180px;
+  padding: 180px 0;
 }
 .blank-tile:hover, .blank-tile:focus {
   -webkit-animation: wiggle 300ms infinite;
@@ -588,7 +587,6 @@ h3,
   }
 }
 .gif-styles {
-  padding-top: 80px;
   max-height: 700px;
   min-height: 500px;
 }
@@ -597,6 +595,12 @@ h3,
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.scrabble-stack-tablet {
+  position: absolute;
+  display: none;
+  z-index: -10;
 }
 
 footer p {
@@ -609,4 +613,73 @@ footer p {
 
 footer span {
   display: block;
+}
+
+@media (max-width: 940px) {
+  header {
+    background-position: center;
+  }
+
+  .form-about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+
+  fieldset {
+    margin: 0 auto;
+  }
+
+  .about {
+    width: auto;
+  }
+
+  .about h2 {
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+
+  .about p {
+    padding: 40px 0;
+  }
+
+  .word-form {
+    padding-bottom: 58px;
+  }
+
+  .word-container::before {
+    top: 50px;
+    right: 100px;
+    bottom: 50px;
+    left: 100px;
+  }
+
+  .scrabble-stack {
+    position: absolute;
+    display: none;
+    z-index: -10;
+  }
+
+  .scrabble-stack-tablet {
+    position: absolute;
+    bottom: 0;
+    right: -133px;
+    z-index: 0;
+    display: initial;
+  }
+
+  .blank-tile {
+    padding: 0;
+    padding-top: 67px;
+  }
+
+  .giphy-surprise {
+    height: 400px;
+  }
+
+  .gif-styles {
+    max-height: 400px;
+    min-height: 400px;
+  }
 }

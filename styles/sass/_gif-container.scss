@@ -1,6 +1,5 @@
 .giphy-surprise {
   position: relative;
-  height: 60vh;
 }
 
 .giphy-gif {
@@ -10,7 +9,7 @@
 
 .blank-tile {
   width: 90px;
-  padding-top: 180px;
+  padding: 180px 0;
   &:hover,
   &:focus {
     animation: wiggle 300ms infinite;
@@ -32,7 +31,6 @@
 }
 
 .gif-styles {
-  padding-top: 80px;
   max-height: 700px;
   min-height: 500px;
 }
@@ -41,4 +39,10 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.scrabble-stack-tablet {
+  position: absolute;
+  display: none;
+  z-index: -10;
 }

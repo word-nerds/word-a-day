@@ -1,9 +1,4 @@
-// pseudo code:
-
-// add an Event Listener to the user input on button click and obtain the value.
-// create a randomizer function to be called as needed.
-// create a function that will loop through the selected day of the week(based on the user's value)
-// call the randomizer function, to obtain the word and return it.
+// pseudo code throughout
 
 const wordApp = {};
 wordApp.url = `https://wordsapiv1.p.rapidapi.com/words`;
@@ -37,6 +32,7 @@ wordApp.usersChoice = () => {
   
   wordApp.form.addEventListener('submit', function(e) {
     e.preventDefault();
+    
     const day = document.querySelector('input[type=radio]:checked').value;
 
     const wordArray = wordApp[day];
@@ -46,12 +42,15 @@ wordApp.usersChoice = () => {
     const selectedIndex = wordApp.randomizer(wordArray);
 
     const chosenWord =  wordArray[selectedIndex];
-    // wordApp.chosenWord = wordArray[selectedIndex];
-    console.log(chosenWord);
+    
+    // Call the function to initiate API call
     wordApp.getData(chosenWord);
+    // Smooth scroll to loaded word data
     const location = document.querySelector('.banner-image');
     location.scrollIntoView();    
+    // Call the gif listener function
     wordApp.gifListener(chosenWord);
+    // document.querySelector('.giphy-gif img').classList.add('blank-tile');
   })
 }
 
@@ -61,7 +60,7 @@ wordApp.randomizer = (wordArray) => {
   return randomIndex;
 };
 
-// Our first API data call
+// Our first API data call to words api
 wordApp.getData = (chosenWord) => {
   const apiUrl = new URL(`${wordApp.url}/${chosenWord}`);
   fetch(apiUrl, {
@@ -75,24 +74,22 @@ wordApp.getData = (chosenWord) => {
       return response.json();
     })
     .then(result => {
-      // console.log(result);
       wordApp.displayInfo(result);
     })
 }
 
-// Display function to 
+// Display function to add HTML with word information to page
 wordApp.displayInfo = (dataFromApi) => {
-  // console.log(dataFromApi);
   document.querySelector('input[type=radio]:checked').checked = false;
   const wordContainer = document.querySelector('.word-container');
-  // console.log(wordContainer);
+  
   wordContainer.innerHTML = `
   <h3> ${dataFromApi.word} </h3>
   <p id="pronunciation"> ${dataFromApi.pronunciation.all}</p>
   <p id="definition">Definition: ${dataFromApi.results[0].definition}.</p>
   <p id="synonym"></p>
   `;
-  // error handling for words with no synonym data to display
+  // Error handling for words with no synonym data to display
   if (dataFromApi.results[0].synonyms === undefined) {
     document.getElementById('synonym').innerHTML = `
     <p> Synonym: Whomp! This word is one of a kind.</p>
@@ -104,6 +101,7 @@ wordApp.displayInfo = (dataFromApi) => {
   }
 }
 
+// Second API call to giphy api
 wordApp.gifFinder = (chosenWord) => {
   const gifUrl = new URL('https://api.giphy.com/v1/gifs/search');
   gifUrl.search = new URLSearchParams({
@@ -118,23 +116,27 @@ wordApp.gifFinder = (chosenWord) => {
     })
     .then(gifObject => {
       const chosenGif = gifObject.data[0].images.original.url;
-      console.log(chosenGif);
+      // Calling the display function
       wordApp.displayGif(chosenGif);
     })
 }
 
+// Function to add event listener on the blank tile click
 wordApp.gifListener = (chosenWord) => {
   wordApp.tile = document.querySelector('.blank-tile');
   wordApp.tile.addEventListener('click', function(){
+    // Calling the gifFinder function with the word of the day
     wordApp.gifFinder(chosenWord);
   })
 }
 
+// Function to display gif on the HTML page
 wordApp.displayGif = (chosenGif) => {
-  // find the img to replace in gif container section
+  // Find the img to replace in gif container section
   const newImage = document.querySelector('.giphy-gif img');
 
-  // replace src on image, remove existing image class add class for gif styling
+  // Replace src on image, remove existing image class add class for gif styling
+  newImage.src = '';
   newImage.src = chosenGif;
   newImage.alt = "a random gif image generated from the word of the day.";
   newImage.classList.remove('blank-tile');
