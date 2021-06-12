@@ -36,7 +36,6 @@ wordApp.usersChoice = () => {
     const day = document.querySelector('input[type=radio]:checked').value;
 
     const wordArray = wordApp[day];
-    console.log(wordArray);
 
     // Call randomizer function to get random word
     const selectedIndex = wordApp.randomizer(wordArray);
