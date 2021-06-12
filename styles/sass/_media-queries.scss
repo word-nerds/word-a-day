@@ -29,10 +29,14 @@
   }
 
   .word-container::before {
-    top: 50px;
-    right: 100px;
-    bottom: 50px;
-    left: 100px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  h3 {
+    padding: 15px 0;
   }
 
   .scrabble-stack {
@@ -47,11 +51,11 @@
     right: -133px;
     z-index: 0;
     display: initial;
+    clip: rect(auto, 261px, auto, auto);
   }
 
   .blank-tile {
-    padding: 0;
-    padding-top: 67px;
+    margin-top: 120px;
   }
 
   .giphy-surprise {
@@ -61,5 +65,76 @@
   .gif-styles {
     max-height: 400px;
     min-height: 400px;
+  }
+}
+
+@media (max-width: 500px) {
+  header {
+    background-position-x: right 45%;
+  }
+
+  header h1 {
+    padding: 15vh 0 30vh 0;
+  }
+
+  .scrabble-w {
+    top: 13vh;
+  }
+
+  .wrapper {
+    width: 85%;
+  }
+
+  .about p {
+    text-align: center;
+    line-height: 30px;
+  }
+
+  fieldset {
+    width: 100%;
+  }
+
+  .radio-container {
+    font-size: 1.5rem;
+  }
+
+  label {
+    margin: 15px 0;
+  }
+
+  .new-radio {
+    height: 20px;
+    width: 20px;
+  }
+
+  .radio-container .new-radio::after {
+    top: 6px;
+    left: 6px;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  #definition,
+  #synonym {
+    font-weight: 700;
+  }
+
+  #definition {
+    font-size: 1.5rem;
+  }
+
+  .scrabble-stack-tablet {
+    display: none;
+  }
+
+  .giphy-surprise {
+    height: 300px;
+  }
+
+  .gif-styles {
+    max-height: 300px;
+    min-height: 300px;
   }
 }
