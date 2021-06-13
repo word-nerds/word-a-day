@@ -10,6 +10,7 @@
 .blank-tile {
   width: 90px;
   margin: 180px 0;
+  z-index: 20;
   &:hover,
   &:focus {
     animation: wiggle 300ms infinite;
