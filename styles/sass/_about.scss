@@ -46,7 +46,8 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover,
+button:focus {
   color: #333;
   background-color: rgba(255,255,255,0.8);
 }
@@ -77,11 +78,21 @@ input {
   border-radius: 50%;
 }
 
-.radio-container:hover input ~ .new-radio {
+.new-radio:focus {
+  outline: 2px solid rgba(220,205,86, 0.8);
+}
+
+input:hover ~ .new-radio:hover,
+input:focus ~ .new-radio:focus {
   background-color: #C6B9AB;
 }
 
-.radio-container input:checked ~ .new-radio {
+// .radio-container:hover input ~ .new-radio,
+// .radio-container:focus input ~ .new-radio {
+//   background-color: #C6B9AB;
+// }
+
+input:checked ~ .new-radio {
   background-color: #333;
 }
 
@@ -89,13 +100,6 @@ input {
   content: "";
   position: absolute;
   display: none;
-}
-
-.radio-container input:checked ~ .new-radio::after {
-  display: block;
-}
-
-.radio-container .new-radio::after {
   top: 8px;
   left: 8px;
   width: 8px;
@@ -103,6 +107,12 @@ input {
   border-radius: 50%;
   background-color: #fff;
 }
+
+input:checked ~ .new-radio::after {
+  display: block;
+  content: "";
+}
+
 // end of form styling
 
 .about span {

@@ -49,7 +49,6 @@ wordApp.usersChoice = () => {
     location.scrollIntoView();    
     // Call the gif listener function
     wordApp.gifListener(chosenWord);
-    // document.querySelector('.giphy-gif img').classList.add('blank-tile');
   })
 }
 
